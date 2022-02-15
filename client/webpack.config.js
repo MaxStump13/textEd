@@ -33,7 +33,7 @@ module.exports = () => {
 				inject: true,
 				name: "Text-Editor",
 				short_name: "JATE",
-				description: "",
+				description: "Edit the text and unfocus the cursor from the editor to save",
 				background_color: "#225ca3",
 				theme_color: "#225ca3",
 				start_url: "/",

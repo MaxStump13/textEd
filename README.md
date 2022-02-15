@@ -1,7 +1,8 @@
 # textEd
 
 ## Description
-The goal was to create a website to display the current and 5-day forecast of a city. This weather dashboard takes in a user-searched city and displays the weather conditions from openweathermap's api. The weather dashboard stores all previous searches locally, and displays those cities as clickable buttons on the page. It works for cities in the US and various other countries. During the creation of this website, I have learned how to use the fetch API and then method to obtain data from third party APIS. I also got more practice using DOM traversal to get the wanted information from the fetch and then methods. 
+
+The goal was to create a progrssive web application to write code or text with or without internet connection. The application is able to be installed to a computer locally and continue to function without internet. This is done by using local storage for storage without internet and indexedDB with internet. Workbox and webpack plugins are used to create a service worker that stores the data on a web browser database and bundle the files together. During this project, I learned to work with both local and client-side web browser storgage for a PWA.
 
 ## Table of Contents (Optional)
 - [Installation](#installation)
@@ -9,28 +10,28 @@ The goal was to create a website to display the current and 5-day forecast of a 
 - [Credits](#credits)
 - [License](#license)
 - [Features](#features)
-- [Tests](#tests)
 
 ## Installation
-N/A
+
 
 ## Usage
-Here is a link to the deployed Text Editor App. [text editor deployed link](https://maxstump13.github.io/weather-dashboard/)
+Here are links to the deployed Text Editor App and GitHub repo. [text editor deployed link](https://tex-ed.herokuapp.com/) [GitHub Repo](https://github.com/MaxStump13/textEd)
 
-When the page is loaded, the dashboard will appear as seen below. Because there is no locally stored searches, the screen will mostly be empty.
-![first time loading page](./assets/images/first-time.png)
+When the page is loaded, the applpication will appear as seen below. 
 
-Once the user searches for a city, the current and forecasted weather conditions will be displayed on the page. The icons associated with the weather will also be displayed. ![display of weather after search](./assets/images/search.png)
+![Manfest file and home page](./images/manifest.png)
 
-Once a search has been made, the data is stored as a JSON object locally. 
-![local storage of city searched](./assets/images/local-storage.PNG)
+Below is the service worker's active status. At load up, an indexedDB database is created for the browser. 
 
-The user is able to check the weather and forecast in multiple countries around the world. Below are some examples. Notice the color surrounding the UV Index also changed. The UV Index is color coded to represent low to high values.
-![Multiple saved searches in previous searches and color change for UV index](./assets/images/uvi-color.png).
+![Service worker status](./images/sw.png)
+![IndexedDB](./images/idb.png)
 
-If the user inputs a nonexistant city or a city not in the openweathermap database, an alert pops up informing the user of the error and error code. ![404 error for invalid city](./assets/images/404.PNG)
+Once the user types something and unfocuses the editor, the current text is saved locally and in the indexedDB storage.
+![Updated indexedDB](./images/idbUpdate.png).
 
-Because the previous searches are stored locally, they will populate the page even if it is refreshed or closed. ![Page refresh still displays previous searches](./assets/images/reload.png)
+Clicking on the install button will install the application to the users desktop. The view is very similiar and can be used with or without internet.
+
+![App view when installed](./images/appView.PNG)
 
 ## Credits
 1. [MDN](https://developer.mozilla.org/en-US/)
@@ -50,16 +51,9 @@ Because the previous searches are stored locally, they will populate the page ev
 N/A
 
 ## Features
-1. Search box that takes user input and the Fetch API method for current/forecasted weather conditions
-2. Stores previous searches locally
-3. layout built with bootstrap
-4. Use of moment.js for current/forecast dates
-5. Previous searches are clickable buttons
-6. Works for cities world wide
-7. Various functions/methods to aid readibility
+1. Installable PWA text editor
+2. Stores data locally and with browser database
+3. Updates storage when editor is unfocused
 
 ## How to Contribute
 If there are any suggestions to improve this generator, this is my [GitHub](https://github.com/MaxStump13) account. 
-
-## Tests
-I tested the functionality of the weather dashboard in a few ways. I typed random text and received the 404 error alert. I also searched the same city multiple times, but because of the conditional statements, it was not saved a second time. I confirmed the UV Index span changes colors at a higher UV index. The buttons for the previous section all will work as well, with updated information. This is because on click they are sent to the getCoordinates function, not just the displayWeather function.
